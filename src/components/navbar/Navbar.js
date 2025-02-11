@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -7,8 +8,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./navbar.css";
 
 function NavBar() {
+  const [isLightMode, setIsLightMode] = useState(false);
+
+  const toggleTheme = () => {
+    setIsLightMode(!isLightMode);
+  };
+
   return (
-    <Navbar expand="lg" className="py-3">
+    <Navbar expand="lg" className={`py-3 ${isLightMode ? "light-nav" : "dark-nav"}`}>
       <Container>
         <Navbar.Brand href="#" className="me-lg-5">
           <img className="logo" src={logo} alt="logo" />
@@ -24,6 +31,9 @@ function NavBar() {
           </Nav>
         </Navbar.Collapse>
         <div className="d-flex align-items-center order">
+          <Button className="ms-1 mx-2" onClick={() => setIsLightMode(!isLightMode)}>
+            {isLightMode ? "🌙 Dark Mode" : "☀️ Light Mode"}
+          </Button>
           <span className="line d-lg-inline-block d-none"></span>
           <i className="fa-regular fa-heart"></i>
           <Button

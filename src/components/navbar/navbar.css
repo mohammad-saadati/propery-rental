@@ -1,3 +1,15 @@
+.dark-nav.navbar {
+  background: white;
+}
+
+.dark-nav .nav-link {
+  color: black;
+}
+
+.dark-nav .logo {
+  filter: invert(1); /* Inverts colors to make dark logos visible */
+}
+
 .line {
   display: inline-block;
   width: 1px;
@@ -62,9 +74,20 @@
 }
 
 .navbar .container div .fa-heart {
-  color: white;
   font-size: 20px;
   position: relative;
+}
+
+.dark-nav .fa-heart {
+  color: black;
+}
+
+.light-nav .fa-heart {
+  color: white;
+}
+
+.light-nav .fa-heart::after {
+  color: white;
 }
 
 .navbar .container div .fa-heart::after {
